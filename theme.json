@@ -1,0 +1,15 @@
+{
+    "name": "Ciderify",
+    "description": "Theme inspired by Spotify",
+    "version": "1.0.0",
+    "author": "booploops",
+    "github_repo": "booploops/CiderifyTheme",
+    "directives": {
+        "windowLayout": {
+            "value": "twopanel"
+        },
+        "lcdArtworkSize": {
+            "value": 70
+        }
+    }
+}

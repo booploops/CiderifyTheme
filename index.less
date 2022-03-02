@@ -1,0 +1,270 @@
+@import url("./fonts/raleway.css");
+@import url("./fonts/metropolis.css");
+
+@panelColorsFallback    : rgb(30 30 30);
+@panelColors            : rgb(30 30 30 / 60%);
+@spotifyBlack           : #191414;
+@spotifyBlack2          : #121212;
+@spotifyBlack3          : #131313;
+@spotifyGreen           : #1DB954;
+@spotifyWhite           : #eee;
+@fontA                  : "Raleway", system-ui;
+@fontB                  : "Metropolis", system-ui;
+@spotifyContextMenu     : #282828;
+@spotifyContextMenuHover: #3E3E3E;
+
+
+#app.twopanel {
+    --keyColor           : @spotifyGreen;
+    font-family          : @fontA;
+    --navigationBarHeight: 50px;
+    --chromeHeight1Real  : var(--navigationBarHeight);
+    --chromeHeight       : var(--chromeHeight2);
+    background-color     : @spotifyBlack;
+    --songProgressColor  : @spotifyWhite;
+
+    .cd-btn-seeall {
+        font-family: @fontB;
+    }
+
+    .window-controls {
+        height  : 42px;
+        position: absolute;
+        right   : 0px;
+        top     : 0px;
+    }
+
+    #app-sidebar {
+        background-color: black;
+        padding-top     : var(--chromeHeight1Real);
+
+        .search-hints-container {
+            top: calc(var(--chromeHeight1Real) * 2);
+        }
+    }
+
+    .app-chrome:not(.chrome-bottom) {
+        background-color: transparent;
+        z-index         : 8;
+        height          : var(--chromeHeight1Real);
+        position        : absolute;
+    }
+
+    .app-chrome.chrome-bottom {
+        background: @spotifyBlack3;
+        box-shadow: 0px -1px 0px 0px rgba(200, 200, 200, 0.2);
+        z-index   : 1;
+
+        .song-progress {
+            font-family: @fontB;
+        }
+
+        .playback-button {
+
+            &.pause,
+            &.play {
+                background-color: black;
+                filter          : invert(1);
+                box-shadow      : unset;
+                height          : 34px;
+                width           : 34px;
+                transition      : transform .1s var(--appleEase);
+
+                &:hover {
+                    transform: scale(1.1);
+                }
+
+                &:active {
+                    transition: transform 0s;
+                    transform : scale(1) translateZ(1px);
+                }
+            }
+        }
+
+        .song-duration {
+            height: 5px !important;
+        }
+
+        .song-artist-album-content {
+            color: #ccc;
+        }
+
+        .app-chrome--left .playback-controls .artwork {
+            @artworkSize: 50px;
+            width       : @artworkSize;
+            height      : @artworkSize;
+            margin      : 16px;
+        }
+    }
+
+
+    #navigation-bar {
+        z-index        : 9;
+        width          : calc(100% - calc(260px + 138px));
+        background     : transparent;
+        backdrop-filter: unset;
+        position       : fixed;
+        right: 138px;
+        left:unset;
+
+        .nav-item {
+            -webkit-app-region: no-drag;
+            filter            : unset;
+            background-color  : #19141455;
+            height            : 36px;
+            width             : 36px;
+            border-radius     : 100%;
+            color             : @spotifyWhite;
+            cursor: pointer;
+
+            &:active {
+                transform: unset;
+            }
+        }
+
+
+    }
+
+    .sidebar-icon {
+        transform: translateY(-1px);
+    }
+
+    .app-sidebar-item {
+        color      : darken(@spotifyWhite, 30%);
+        font-weight: 700;
+        cursor     : pointer;
+
+        &:hover {
+            color           : @spotifyWhite;
+            border-color    : transparent;
+            background-color: transparent;
+            transition      : color .1s var(--appleEase);
+        }
+
+        &:active {
+            transform: unset;
+        }
+    }
+
+    .app-sidebar-item.active {
+        background  : transparent !important;
+        color       : @spotifyWhite;
+        cursor      : default;
+        border-color: transparent;
+
+        &::after {
+            display: none;
+        }
+    }
+
+    .playback-info {
+        font-family: @fontB;
+    }
+
+    #app-content {
+        background   : @spotifyBlack2;
+        border-radius: 0px;
+        border-top   : 0px;
+
+        &::-webkit-scrollbar {
+            width : 16px;
+            height: 24px;
+        }
+
+        &::-webkit-scrollbar-button {
+            display: none;
+        }
+
+        &::-webkit-scrollbar-track-piece {
+            background: transparent;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background   : transparent;
+            border: 4px solid transparent;
+            border-top   : var(--chromeHeight1Real) solid transparent;
+            box-shadow   : inset 0px 0px 10px 10px rgb(200 200 200 / 50%);
+            border-radius: 0px;
+            min-height   : 64px;
+            transition   : border 1s;
+        }
+
+        &::-webkit-scrollbar-thumb:hover {
+            border    : 3px solid transparent;
+            box-shadow: inset 0px 0px 10px 10px rgb(200 200 200 / 80%);
+            border-top: var(--chromeHeight1Real) solid transparent;
+            transition: border 1s;
+        }
+    }
+
+    // .app-drawer {
+    //     width:calc(100% - 260px);
+    //     right:0px;
+    //     top: var(--chromeHeight1Real);
+    //     border-radius:0px;
+    //     height: calc(100% - var(--chromeHeight1Real));
+    //     box-shadow: unset;
+    //     z-index: 7;
+
+    //     .lyric-body {
+    //         text-align: center;
+
+    //         .lyric-line {
+    //             transform-origin: center;
+    //             transform: scale(1);
+    //             margin-left: 0px;
+
+    //         }
+    //     }
+    // }
+
+    .floating-header {
+        left       : 5%;
+        top        : 0px;
+        padding-top: var(--navigationBarHeight);
+    }
+
+    .menu-panel {
+        .menu-panel-body {
+            border-radius   : 6px;
+            background-color: @spotifyContextMenu;
+            padding         : 4px;
+            font-size       : .8em;
+
+            .menu-header-body {
+                background: transparent;
+            }
+
+            .menu-option:hover {
+                background: @spotifyContextMenuHover;
+            }
+        }
+
+        @keyframes menuIn {
+            0% {
+                opacity   : 0;
+                transform : translateY(-10px) translate3d(0, 0, 0);
+                background: @panelColorsFallback;
+            }
+
+            100% {
+                opacity   : 1;
+                transform : translateY(0);
+                background: @panelColors;
+            }
+        }
+
+    }
+}
+
+
+// .wpfade_transform-enter-active,
+// .wpfade_transform-leave-active {
+//     transition: opacity .22s var(--appleEase), transform .22s var(--appleEase);
+// }
+
+// .wpfade_transform-enter,
+// .wpfade_transform-leave-to {
+//     opacity  : 0;
+//     transform: scale(0.9);
+// }
