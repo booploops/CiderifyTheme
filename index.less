@@ -1,17 +1,20 @@
 @import url("./fonts/raleway.css");
 @import url("./fonts/metropolis.css");
 
-@panelColorsFallback    : rgb(30 30 30);
-@panelColors            : rgb(30 30 30 / 60%);
-@spotifyBlack           : #191414;
-@spotifyBlack2          : #121212;
-@spotifyBlack3          : #131313;
-@spotifyGreen           : #1DB954;
-@spotifyWhite           : #eee;
-@fontA                  : "Raleway", system-ui;
-@fontB                  : "Metropolis", system-ui;
+@panelColorsFallback : rgb(30 30 30);
+@panelColors         : rgb(30 30 30 / 60%);
+@spotifyBlack        : #191414;
+@spotifyBlack2       : #121212;
+@spotifyBlack3       : #131313;
+@spotifyGreen        : #1DB954;
+@spotifyWhite        : #eee;
+@fontA               : "Raleway",
+system-ui;
+@fontB : "Metropolis",
+system-ui;
 @spotifyContextMenu     : #282828;
 @spotifyContextMenuHover: #3E3E3E;
+
 
 #app.twopanel {
     --keyColor           : @spotifyGreen;
@@ -96,6 +99,12 @@
         }
     }
 
+    .search-input {
+        border-radius : 32px;
+        padding-top   : 8px;
+        padding-bottom: 8px;
+    }
+
 
     #navigation-bar {
         z-index        : 9;
@@ -103,8 +112,8 @@
         background     : transparent;
         backdrop-filter: unset;
         position       : fixed;
-        right: 138px;
-        left:unset;
+        right          : 138px;
+        left           : unset;
 
         .nav-item {
             -webkit-app-region: no-drag;
@@ -114,7 +123,7 @@
             width             : 36px;
             border-radius     : 100%;
             color             : @spotifyWhite;
-            cursor: pointer;
+            cursor            : pointer;
 
             &:active {
                 transform: unset;
@@ -180,7 +189,7 @@
 
         &::-webkit-scrollbar-thumb {
             background   : transparent;
-            border: 4px solid transparent;
+            border       : 4px solid transparent;
             border-top   : var(--chromeHeight1Real) solid transparent;
             box-shadow   : inset 0px 0px 10px 10px rgb(200 200 200 / 50%);
             border-radius: 0px;
@@ -255,15 +264,3 @@
 
     }
 }
-
-
-// .wpfade_transform-enter-active,
-// .wpfade_transform-leave-active {
-//     transition: opacity .22s var(--appleEase), transform .22s var(--appleEase);
-// }
-
-// .wpfade_transform-enter,
-// .wpfade_transform-leave-to {
-//     opacity  : 0;
-//     transform: scale(0.9);
-// }
