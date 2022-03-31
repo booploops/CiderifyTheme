@@ -16,8 +16,8 @@ system-ui;
 #app.twopanel {
     --keyColor           : @spotifyGreen;
     font-family          : @fontA;
-    --navigationBarHeight: 50px;
-    --chromeHeight1Real  : var(--navigationBarHeight);
+    --combBarHeight: 50px;
+    --chromeHeight1Real  : var(--combBarHeight);
     --chromeHeight       : var(--chromeHeight2);
     background-color     : @spotifyBlack;
     --songProgressColor  : @spotifyWhite;
@@ -39,6 +39,40 @@ system-ui;
 
         .search-hints-container {
             top: calc(var(--chromeHeight1Real) * 2);
+        }
+    }
+
+    #app-content {
+        position     : relative;
+        border-radius: 0px;
+        border-top   : 0px;
+        border-left  : 0px solid rgb(10 10 10 / 20%);
+        height: calc(100% - var(--chromeHeight1Real));
+        margin-top: var(--chromeHeight1Real);
+
+
+        &:before {
+            content              : "";
+            background           : rgb(0 0 0 / 50%);
+            // width: 100%
+            height               : var(--combBarHeight);
+            position             : fixed;
+            top                  : 0;
+            right                : 0px;
+            left                 : 261px;
+            z-index              : 2;
+            backdrop-filter      : blur(16px) saturate(100%);
+            border-bottom        : 1px solid rgb(0 0 0 / 20%);
+            transition           : background .3s var(--appleEase), border-bottom .3s var(--appleEase);
+            // -webkit-mask-image: linear-gradient(to top, transparent 0%, black 50%, black);
+        }
+
+        &[scrollpos~="0"] {
+            &::before {
+                background     : var(--color1);
+                border-bottom  : 1px solid rgb(0 0 0 / 0%);
+                backdrop-filter: blur(0px);
+            }
         }
     }
 
@@ -162,6 +196,26 @@ system-ui;
         font-family: @fontB;
     }
 
+    .artist-page .artist-body {
+        margin: 20px;
+    }
+
+    #navigation-bar {
+        height: var(--combBarHeight);
+    }
+
+    --navigationBarHeight: 0px;
+
+    .artworkMaterial {
+        -webkit-mask-image: linear-gradient(0deg, white 50%, transparent);
+    }
+    
+    .playlist-page .playlist-body {
+        // margin-top: 600px;
+        // margin-top:0px;
+    }
+
+
     #app-content {
         background   : @spotifyBlack2;
         border-radius: 0px;
@@ -183,7 +237,6 @@ system-ui;
         &::-webkit-scrollbar-thumb {
             background   : transparent;
             border       : 4px solid transparent;
-            border-top   : var(--chromeHeight1Real) solid transparent;
             box-shadow   : inset 0px 0px 10px 10px rgb(200 200 200 / 50%);
             border-radius: 0px;
             min-height   : 64px;
@@ -193,7 +246,6 @@ system-ui;
         &::-webkit-scrollbar-thumb:hover {
             border    : 3px solid transparent;
             box-shadow: inset 0px 0px 10px 10px rgb(200 200 200 / 80%);
-            border-top: var(--chromeHeight1Real) solid transparent;
             transition: border 1s;
         }
     }
@@ -220,9 +272,11 @@ system-ui;
     // }
 
     .floating-header {
-        left       : 5%;
+        left       : 260px;
         top        : 0px;
-        padding-top: var(--navigationBarHeight);
+        width: 100%;
+        position:sticky;
+        // padding-top: var(--navigationBarHeight);
     }
 
     .menu-panel {
