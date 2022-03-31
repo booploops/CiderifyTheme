@@ -9,7 +9,10 @@
             "value": "twopanel"
         },
         "lcdArtworkSize": {
-            "value": 70
+            "value": 100
+        },
+        "appNavigation": {
+            "value": "seperate"
         }
     }
 }
