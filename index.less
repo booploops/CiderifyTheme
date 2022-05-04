@@ -5,6 +5,8 @@
 @spotifyBlack3       : #131313;
 @spotifyGreen        : #1DB954;
 @spotifyWhite        : #eee;
+@spotifyTab          : #232323;
+@spotifyTabHover     : #2a2a2a;
 @fontA               : "Inter",
 system-ui;
 @fontB : "Inter",
@@ -18,13 +20,13 @@ input[type=checkbox][switch]:checked:hover {
 }
 
 #app.twopanel {
-    --keyColor           : @spotifyGreen;
-    font-family          : @fontA;
-    --combBarHeight: 50px;
-    --chromeHeight1Real  : var(--combBarHeight);
-    --chromeHeight       : var(--chromeHeight2);
-    background-color     : @spotifyBlack;
-    --songProgressColor  : @spotifyWhite;
+    --keyColor         : @spotifyGreen;
+    font-family        : @fontA;
+    --combBarHeight    : 50px;
+    --chromeHeight1Real: var(--combBarHeight);
+    --chromeHeight     : var(--chromeHeight2);
+    background-color   : @spotifyBlack;
+    --songProgressColor: @spotifyWhite;
 
     .cd-btn-seeall {
         font-family: @fontB;
@@ -51,8 +53,8 @@ input[type=checkbox][switch]:checked:hover {
         border-radius: 0px;
         border-top   : 0px;
         border-left  : 0px solid rgb(10 10 10 / 20%);
-        height: calc(100% - var(--chromeHeight1Real));
-        margin-top: var(--chromeHeight1Real);
+        height       : calc(100% - var(--chromeHeight1Real));
+        margin-top   : var(--chromeHeight1Real);
 
 
         &:before {
@@ -63,9 +65,8 @@ input[type=checkbox][switch]:checked:hover {
             position             : fixed;
             top                  : 0;
             right                : 0px;
-            left                 : 261px;
+            left                 : 260px;
             z-index              : 2;
-            backdrop-filter      : blur(16px) saturate(100%);
             border-bottom        : 1px solid rgb(0 0 0 / 20%);
             transition           : background .3s var(--appleEase), border-bottom .3s var(--appleEase);
             // -webkit-mask-image: linear-gradient(to top, transparent 0%, black 50%, black);
@@ -88,7 +89,7 @@ input[type=checkbox][switch]:checked:hover {
     }
 
     .app-chrome.chrome-bottom {
-        height: 90px;
+        height    : 90px;
         background: @spotifyBlack3;
         box-shadow: 0px -1px 0px 0px rgba(200, 200, 200, 0.2);
         z-index   : 1;
@@ -127,16 +128,19 @@ input[type=checkbox][switch]:checked:hover {
             color: #ccc;
         }
 
-        .app-chrome-item.volume  {
+        .app-chrome-item.volume {
             width: 110px;
+
             input {
-                background: @spotifyWhite;                
+                background: @spotifyWhite;
+
                 &::-webkit-slider-thumb {
-                    opacity:0;
+                    opacity: 0;
                 }
+
                 &:hover {
                     &::-webkit-slider-thumb {
-                        opacity:1;
+                        opacity: 1;
                     }
                 }
             }
@@ -233,7 +237,7 @@ input[type=checkbox][switch]:checked:hover {
     .artworkMaterial {
         -webkit-mask-image: linear-gradient(0deg, white 50%, transparent);
     }
-    
+
     .playlist-page .playlist-body {
         // margin-top: 600px;
         // margin-top:0px;
@@ -296,10 +300,10 @@ input[type=checkbox][switch]:checked:hover {
     // }
 
     .floating-header {
-        left       : 260px;
-        top        : 0px;
-        width: 100%;
-        position:sticky;
+        left          : 260px;
+        top           : 0px;
+        width         : 100%;
+        position      : sticky;
         // padding-top: var(--navigationBarHeight);
     }
 
@@ -315,10 +319,10 @@ input[type=checkbox][switch]:checked:hover {
 
             .menu-option:hover {
                 &::before {
-                    top: 2px;
-                    left:2px;
-                    right:2px;
-                    bottom:2px;
+                    top       : 2px;
+                    left      : 2px;
+                    right     : 2px;
+                    bottom    : 2px;
                     background: @spotifyContextMenuHover;
                 }
             }
