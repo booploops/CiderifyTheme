@@ -284,14 +284,19 @@ system-ui;
             border-radius   : 6px;
             background-color: @spotifyContextMenu;
             padding         : 4px;
-            font-size       : .8em;
 
             .menu-header-body {
                 background: transparent;
             }
 
             .menu-option:hover {
-                background: @spotifyContextMenuHover;
+                &::before {
+                    top: 2px;
+                    left:2px;
+                    right:2px;
+                    bottom:2px;
+                    background: @spotifyContextMenuHover;
+                }
             }
         }
 
