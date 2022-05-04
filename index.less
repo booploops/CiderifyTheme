@@ -84,6 +84,7 @@ system-ui;
     }
 
     .app-chrome.chrome-bottom {
+        height: 90px;
         background: @spotifyBlack3;
         box-shadow: 0px -1px 0px 0px rgba(200, 200, 200, 0.2);
         z-index   : 1;
@@ -122,8 +123,27 @@ system-ui;
             color: #ccc;
         }
 
+        .app-chrome-item.volume  {
+            width: 110px;
+            input {
+                background: @spotifyWhite;                
+                &::-webkit-slider-thumb {
+                    opacity:0;
+                }
+                &:hover {
+                    &::-webkit-slider-thumb {
+                        opacity:1;
+                    }
+                }
+            }
+        }
+
+        .app-chrome-playback-controls {
+            margin-top: -8px;
+        }
+
         .app-chrome--left .playback-controls .artwork {
-            @artworkSize: 50px;
+            @artworkSize: 56px;
             width       : @artworkSize;
             height      : @artworkSize;
             margin      : 16px;
