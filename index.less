@@ -3,6 +3,7 @@
 @spotifyBlack        : #191414;
 @spotifyBlack2       : #121212;
 @spotifyBlack3       : #131313;
+@spotifyBlack4       : #050505;
 @spotifyGreen        : #1DB954;
 @spotifyWhite        : #eee;
 @spotifyTab          : #232323;
@@ -49,6 +50,10 @@ input[type=checkbox][switch]:checked:hover {
         }
     }
 
+    .app-navigation {
+        background-color: @spotifyBlack2;
+    }
+
     #app-content {
         position     : relative;
         border-radius: 0px;
@@ -75,8 +80,9 @@ input[type=checkbox][switch]:checked:hover {
 
         &[scrollpos~="0"] {
             &::before {
+                display        : none;
                 background     : var(--color1);
-                border-bottom  : 1px solid rgb(0 0 0 / 0%);
+                border-bottom  : 1px solid rgb(0 0 0 / 100%);
                 backdrop-filter: blur(0px);
             }
         }
@@ -93,6 +99,33 @@ input[type=checkbox][switch]:checked:hover {
         position        : absolute;
     }
 
+    .app-chrome:not(.chrome-bottom) {
+        .app-chrome--left {
+            >.app-chrome-item.full-height {
+                padding-right: 206px;
+            }
+
+            .vdiv {
+                display: none;
+            }
+
+            .playback-button.navigation {
+                -webkit-app-region: no-drag;
+                background-color  : @spotifyBlack4;
+                height            : 32px;
+                width             : 32px;
+                border-radius     : 100%;
+                margin-right: 6px;
+                color             : @spotifyWhite;
+                cursor            : pointer;
+
+                &:active {
+                    transform: unset;
+                }
+            }
+        }
+    }
+
     .app-chrome.chrome-bottom {
         background: @spotifyBlack3;
         box-shadow: 0px -1px 0px 0px rgba(200, 200, 200, 0.2);
@@ -103,6 +136,7 @@ input[type=checkbox][switch]:checked:hover {
         }
 
         .playback-button {
+            height: 34px;
 
             &.pause,
             &.play {
@@ -140,7 +174,8 @@ input[type=checkbox][switch]:checked:hover {
                 background: @spotifyWhite;
 
                 &::-webkit-slider-thumb {
-                    opacity: 0;
+                    opacity   : 0;
+                    background: @spotifyWhite;
                 }
 
                 &:hover {
@@ -151,8 +186,13 @@ input[type=checkbox][switch]:checked:hover {
             }
         }
 
+        .app-chrome--center {
+            flex-direction: column-reverse;
+        }
+
         .app-chrome-playback-controls {
-            margin-top: -8px;
+            margin-top   : -6px;
+            margin-bottom: 3px;
         }
 
         .app-chrome--left .playback-controls .artwork {
