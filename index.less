@@ -34,13 +34,6 @@ input[type=checkbox][switch]:checked:hover {
         font-family: @fontB;
     }
 
-    .window-controls {
-        height  : 42px;
-        position: absolute;
-        right   : 0px;
-        top     : 0px;
-    }
-
     #app-sidebar {
         background-color: black;
         padding-top     : var(--chromeHeight1Real);
@@ -97,6 +90,7 @@ input[type=checkbox][switch]:checked:hover {
         z-index         : 8;
         height          : var(--chromeHeight1Real);
         position        : absolute;
+        box-shadow: unset;
     }
 
     .app-chrome:not(.chrome-bottom) {
@@ -333,10 +327,6 @@ input[type=checkbox][switch]:checked:hover {
         z-index      : 7;
     }
 
-    .app-drawer {
-        top: 6.5%!important;
-        height: 93%!important;
-    }
 
     .floating-header {
         left          : 260px;
