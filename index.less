@@ -30,6 +30,12 @@ input[type=checkbox][switch]:checked:hover {
     background-color   : @spotifyBlack;
     --songProgressColor: @spotifyWhite;
 
+    &[library-visible="0"] {
+        .app-chrome:not(.chrome-bottom) {
+            background-image: unset;
+        }
+    }
+
     .cd-btn-seeall {
         font-family: @fontB;
     }
