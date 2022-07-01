@@ -20,7 +20,7 @@ input[type=checkbox][switch]:checked:hover {
     background: @spotifyGreen;
 }
 
-#app.twopanel {
+#app.twopanel:not([window-state="fullscreen"]) {
     --chromeHeight2    : 90px;
     --keyColor         : @spotifyGreen;
     font-family        : @fontA;
@@ -30,14 +30,29 @@ input[type=checkbox][switch]:checked:hover {
     background-color   : @spotifyBlack;
     --songProgressColor: @spotifyWhite;
 
-    &[library-visible="0"] {
-        .app-chrome:not(.chrome-bottom) {
-            background-image: unset;
-        }
-    }
 
     .cd-btn-seeall {
         font-family: @fontB;
+    }
+    
+    .md-btn {
+        border-radius: 50px;
+        background: @spotifyBlack;
+        border: 1px solid @spotifyWhite;
+        font-weight: 500;
+
+        &.md-btn-primary {
+            color: @spotifyBlack;
+            background-color: @spotifyWhite;
+
+            .md-ico-play, .md-ico-shuffle {
+                filter: invert(1);
+            }
+        }
+    }
+
+    .md-select {
+        border:0px;
     }
 
     #app-sidebar {
@@ -52,7 +67,6 @@ input[type=checkbox][switch]:checked:hover {
     .app-navigation {
         background-color: @spotifyBlack2;
     }
-
     #app-content {
         position     : relative;
         border-radius: 0px;
@@ -97,10 +111,16 @@ input[type=checkbox][switch]:checked:hover {
         box-shadow: unset;
     }
 
+    .settings-panel .settings-window {
+        --baseColor: @spotifyBlack;
+        --baseColorMix: @spotifyBlack;
+    }
+
     .app-chrome:not(.chrome-bottom) {
         .app-chrome--left {
             >.app-chrome-item.full-height {
                 padding-right: 206px;
+                transition: padding-right .25s linear;
             }
 
             .vdiv {
@@ -377,5 +397,14 @@ input[type=checkbox][switch]:checked:hover {
             }
         }
 
+    }
+
+    &[library-visible="0"] {
+        .app-chrome:not(.chrome-bottom) {
+            background-image: unset;
+        }
+        .app-chrome:not(.chrome-bottom) .app-chrome--left > .app-chrome-item.full-height {
+            padding-right: unset;
+        }
     }
 }
