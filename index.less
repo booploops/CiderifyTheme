@@ -16,6 +16,8 @@ input[type=checkbox][switch]:checked:hover {
     --songProgressColor: @spotifyWhite;
 
 
+
+
     .cd-btn-seeall {
         font-family: @fontB;
     }
@@ -101,8 +103,18 @@ input[type=checkbox][switch]:checked:hover {
         --baseColorMix: @spotifyBlack;
     }
 
+    .app-chrome-item {
+        * {
+            -webkit-app-region: no-drag;
+        }
+    }
+
     .app-chrome:not(.chrome-bottom) {
         .app-chrome--left {
+            -webkit-app-region: drag;
+            .app-chrome-item {
+                -webkit-app-region: drag;
+            }
             >.app-chrome-item.full-height {
                 padding-right: 206px;
                 transition: padding-right .25s linear;
