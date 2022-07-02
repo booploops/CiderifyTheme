@@ -21,30 +21,31 @@ input[type=checkbox][switch]:checked:hover {
     .cd-btn-seeall {
         font-family: @fontB;
     }
-    
+
     .md-btn {
         border-radius: 50px;
-        background: @spotifyBlack;
-        border: 1px solid @spotifyWhite;
-        font-weight: 500;
+        background   : @spotifyBlack;
+        border       : 1px solid @spotifyWhite;
+        font-weight  : 500;
 
         &.md-btn-primary {
-            color: @spotifyBlack;
+            color           : @spotifyBlack;
             background-color: @spotifyWhite;
 
-            .md-ico-play, .md-ico-shuffle {
+            .md-ico-play,
+            .md-ico-shuffle {
                 filter: invert(1);
             }
         }
     }
 
     .md-select {
-        border:0px;
+        border: 0px;
     }
 
     #app-sidebar {
-        background: black;
-        padding-top     : var(--chromeHeight1Real);
+        background : black;
+        padding-top: var(--chromeHeight1Real);
 
         .search-hints-container {
             top: calc(var(--chromeHeight1Real) * 2);
@@ -54,6 +55,7 @@ input[type=checkbox][switch]:checked:hover {
     .app-navigation {
         background-color: @spotifyBlack2;
     }
+
     #app-content {
         position     : relative;
         border-radius: 0px;
@@ -92,14 +94,14 @@ input[type=checkbox][switch]:checked:hover {
 
     .app-chrome:not(.chrome-bottom) {
         background-image: linear-gradient(90deg, black 260px, rgb(14 14 14 / 50%) 260px);
-        z-index: 8;
-        height: var(--chromeHeight1Real);
-        position: absolute;
-        box-shadow: unset;
+        z-index         : 8;
+        height          : var(--chromeHeight1Real);
+        position        : absolute;
+        box-shadow      : unset;
     }
 
     .settings-panel .settings-window {
-        --baseColor: @spotifyBlack;
+        --baseColor   : @spotifyBlack;
         --baseColorMix: @spotifyBlack;
     }
 
@@ -112,12 +114,14 @@ input[type=checkbox][switch]:checked:hover {
     .app-chrome:not(.chrome-bottom) {
         .app-chrome--left {
             -webkit-app-region: drag;
+
             .app-chrome-item {
                 -webkit-app-region: drag;
             }
+
             >.app-chrome-item.full-height {
                 padding-right: 206px;
-                transition: padding-right .25s linear;
+                transition   : padding-right .25s linear;
             }
 
             .vdiv {
@@ -130,7 +134,7 @@ input[type=checkbox][switch]:checked:hover {
                 height            : 32px;
                 width             : 32px;
                 border-radius     : 100%;
-                margin-right: 6px;
+                margin-right      : 6px;
                 color             : @spotifyWhite;
                 cursor            : pointer;
 
@@ -336,23 +340,23 @@ input[type=checkbox][switch]:checked:hover {
     .modular-fs .app-drawer {
         width        : calc(100% - 260px);
         right        : 0px;
-        top          : 6.5%!important;
+        top          : 6.5% !important;
         border-radius: 0px;
-        height       : 93.4%!important;
+        height       : 93.4% !important;
         box-shadow   : unset;
         z-index      : 7;
     }
 
 
     .floating-header {
-        left          : 260px;
+        left             : 260px;
         // top           : 0px;
-        width         : 100%;
-        position      : sticky;
+        width            : 100%;
+        position         : sticky;
         // padding-top: var(--navigationBarHeight);
     }
 
-    
+
 
     .menu-panel {
         .menu-panel-body {
@@ -395,8 +399,38 @@ input[type=checkbox][switch]:checked:hover {
         .app-chrome:not(.chrome-bottom) {
             background-image: unset;
         }
-        .app-chrome:not(.chrome-bottom) .app-chrome--left > .app-chrome-item.full-height {
+
+        .app-chrome:not(.chrome-bottom) .app-chrome--left>.app-chrome-item.full-height {
             padding-right: unset;
         }
     }
+
+    &[library-visible="1"] {
+        @media (max-width: 1230px) {
+            .app-chrome:not(.chrome-bottom) .app-chrome--left>.app-chrome-item.full-height {
+                padding-right   : unset !important;
+            }
+        }
+    }
+
+    @media (max-width: 1094px) {
+        .app-chrome:not(.chrome-bottom) .app-chrome--center {
+            
+            .app-chrome-item {
+                width: 300px;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+                
+                .top-nav-group {
+                    width:100%;
+                }
+
+                .top-nav-group .app-sidebar-item {
+                    min-width: unset;
+                }
+            }
+        }
+    }
+
 }
