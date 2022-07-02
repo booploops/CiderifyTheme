@@ -1,7 +1,7 @@
 {
     "name": "Ciderify",
     "description": "Theme inspired by Spotify",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "author": "booploops",
     "github_repo": "booploops/CiderifyTheme",
     "directives": {
@@ -11,5 +11,11 @@
         "lcdArtworkSize": {
             "value": 100
         }
-    }
+    },
+    "pack": [
+        {
+            "file": "transparent.less",
+            "name": "Add Transparency"
+        }
+    ]
 }
