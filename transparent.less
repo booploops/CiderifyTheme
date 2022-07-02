@@ -1,0 +1,42 @@
+@import "./vars.less";
+
+#app.twopanel:not([window-state="fullscreen"]) {
+    background-color: transparent;
+    #app-sidebar {
+        background-color: transparent;
+    }
+
+    .app-navigation {
+        background: mix(@spotifyBlack2, transparent, 50%);
+    }
+
+    #app-content {
+        background-color: mix(@spotifyBlack2, transparent, 50%);
+    }
+
+    .app-chrome:not(.chrome-bottom) {
+        background-image: linear-gradient(90deg, mix(@spotifyBlack2, transparent, 0%) 260px, rgb(14 14 14 / 50%) 260px);
+        background-image: unset;
+        backdrop-filter: unset;
+        background-color: unset;
+        z-index: 8;
+        height: var(--chromeHeight1Real);
+        position: absolute;
+        box-shadow: unset;
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 261px;
+            width: 100%;
+            height: 100%;
+            backdrop-filter: blur(10px);
+            z-index: -1;
+        }
+    }
+
+    .app-chrome.chrome-bottom {
+        background: mix( @spotifyBlack3, transparent, 80%);
+    }
+}
