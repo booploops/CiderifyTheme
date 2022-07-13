@@ -116,6 +116,10 @@
         }
     }
 
+    .btn-group {
+        gap: 16px;
+    }
+
     .app-chrome:not(.chrome-bottom) {
         .app-chrome--left {
             -webkit-app-region: drag;
@@ -125,7 +129,7 @@
             }
 
             >.app-chrome-item.full-height {
-                padding-right: 206px;
+                padding-right: calc(var(--sidebarWidth) - 54px);
                 transition   : padding-right .25s linear;
             }
 
@@ -140,6 +144,20 @@
                 width             : 32px;
                 border-radius     : 100%;
                 margin-right      : 6px;
+                color             : @spotifyWhite;
+                cursor            : pointer;
+
+                &:active {
+                    transform: unset;
+                }
+            }
+
+            .playback-button.collapseLibrary {
+                -webkit-app-region: no-drag;
+                background-color  : @spotifyBlack4;
+                height            : 32px;
+                width             : 32px;
+                border-radius     : 100%;
                 color             : @spotifyWhite;
                 cursor            : pointer;
 
@@ -170,6 +188,10 @@
                 width           : 34px;
                 transition      : transform .1s var(--appleEase);
                 background-size : 24px;
+
+                &::before {
+                    display: none;
+                }
 
                 &:hover {
                     transform: scale(1.1);
