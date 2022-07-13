@@ -7,4 +7,12 @@
             display: none!important;
         }
     }
+
+    &[library-visible="1"] {
+        @media (max-width: 1230px) {
+            .app-chrome:not(.chrome-bottom) .app-chrome--left>.app-chrome-item.full-height {
+                padding-right   : calc(var(--sidebarWidth) - 54px) !important;
+            }
+        }
+    }
 }
