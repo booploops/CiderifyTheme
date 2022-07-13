@@ -16,6 +16,14 @@
         {
             "file": "transparent.less",
             "name": "Add Transparency"
+        },
+        {
+            "file": "greenAccent.less",
+            "name": "Green Accent Color"
+        },
+        {
+            "file": "noTabs.less",
+            "name": "Remove Tabs"
         }
     ]
 }
